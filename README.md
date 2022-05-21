@@ -2,6 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 LabView codes to perform an nonlinear electrochemical impedance spectroscopy (NLEIS) experiment.
+python and LabVIEW code to analyze the raw voltage and current data from NLEIS experiment.
 
 ## Documentation
 NLEIS is an extension of the more commonly known electrochemical impedance spectroscopy (EIS) technique. In our doc folder you will find:
