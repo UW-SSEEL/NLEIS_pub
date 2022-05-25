@@ -56,10 +56,10 @@ def window_coefficient(b=20, max_k=5, Cyc=100, nt=4096):
             kneg = (b*(-(Cyc*k)+n)*pi)/Cyc
             kpos = (b*(Cyc*k+n)*pi)/Cyc
             cterm = (Cyc-Cyc*nt)/(b*nt)
-            ReVpk[n] = b*sqrt(pi)/(4*Cyc) * ( exp(-kneg**2)+exp(-kpos**2) ) * sqrt(2)
-            ImVpk[n] = -b/(2*Cyc)*( dawsn(kneg)+dawsn(kpos) ) * sqrt(2)
-            ReVppk[n] = b/(2*Cyc)*( dawsn(kneg)-dawsn(kpos) ) * sqrt(2)
-            ImVppk[n] = b*sqrt(pi)/(4*Cyc) * ( exp(-kneg**2)-exp(-kpos**2) ) * sqrt(2)
+            ReVpk[n] = b*sqrt(pi)/(4*Cyc) * ( exp(-kneg**2)+exp(-kpos**2) )
+            ImVpk[n] = -b/(2*Cyc)*( dawsn(kneg)+dawsn(kpos) )
+            ReVppk[n] = b/(2*Cyc)*( dawsn(kneg)-dawsn(kpos) )
+            ImVppk[n] = b*sqrt(pi)/(4*Cyc) * ( exp(-kneg**2)-exp(-kpos**2) )
         Pk[k_1,:] = concatenate((flip(ReVpk), ReVpk, flip(ImVpk), ImVpk))
         Qk[k_1,:] = concatenate((flip(ReVppk), ReVppk, flip(ImVppk), ImVppk))
     return Pk, Qk
@@ -207,7 +207,7 @@ def FFT(y):
     Perform the Fourier transform of the data and realign the FFT results.
     """
     FFT = fft(y, norm = "forward")
-    FFT = FFT[:int(len(FFT)/2)]*sqrt(2)
+    FFT = FFT[:int(len(FFT)/2)]
     ReFFT = FFT.real
     ImFFT = FFT.imag
     return concatenate((flip(ReFFT), ReFFT, flip(ImFFT), ImFFT))
