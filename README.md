@@ -17,4 +17,4 @@ Adler, Stuart B., Wilson, Jamie R., Huff, Shawn L., and Schwartz, Daniel T., *Me
 
 
 ## License
-Released under the [MIT License](LICENSE).
+Released under the [UW Open Source License](https://comotion.uw.edu/licensing/open-source/).
